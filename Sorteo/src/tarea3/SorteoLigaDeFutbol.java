@@ -7,24 +7,24 @@ import java.util.Scanner;
 
 public class SorteoLigaDeFutbol {
 	public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner teclado = new Scanner(System.in);
 
         System.out.println("Ingrese la etapa (octavos, cuartos, semifinales, final):");
-        String etapa = scanner.nextLine().toLowerCase();
+        String etapa = teclado.nextLine().toLowerCase();
 
-        int numEquipos;
+        int cantEquipos;
         switch (etapa) {
             case "octavos":
-                numEquipos = 16;
+                cantEquipos = 16;
                 break;
             case "cuartos":
-                numEquipos = 8;
+                cantEquipos = 8;
                 break;
             case "semifinales":
-                numEquipos = 4;
+                cantEquipos = 4;
                 break;
             case "final":
-                numEquipos = 2;
+                cantEquipos = 2;
                 break;
             default:
                 System.out.println("Etapa no válida.");
@@ -32,9 +32,9 @@ public class SorteoLigaDeFutbol {
         }
 
         List<String> equipos = new ArrayList<>();
-        for (int i = 1; i <= numEquipos; i++) {
+        for (int i = 1; i <= cantEquipos; i++) {
             System.out.println("Ingrese el nombre del equipo " + i + ":");
-            equipos.add(scanner.nextLine());
+            equipos.add(teclado.nextLine());
         }
 
         System.out.println("\nSorteo de la etapa de " + etapa + ":");
@@ -50,7 +50,7 @@ public class SorteoLigaDeFutbol {
             return;
         }
 
-        // Mezcla aleatoria de los equipos
+        // Sorteo de los equipos
         Collections.shuffle(equipos);
 
         // Emparejamiento de los equipos y mostrar los partidos
@@ -62,7 +62,7 @@ public class SorteoLigaDeFutbol {
             System.out.println("Partido: " + equipo1 + " vs " + equipo2);
 
             // Simulación de ganadores para continuar a la siguiente etapa
-            ganadores.add(equipo1); // Puedes cambiar la lógica para seleccionar el ganador
+            ganadores.add(equipo1); 
         }
 
         // Llamada recursiva con los ganadores
